@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context="asiapacific.app.Registration">
+
+    <TextView
+        style="@style/text_25"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/_40sdp"
+        android:gravity="center"
+        android:text="Registration"
+        android:textColor="@color/login_btn"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/edttxt_name"
+        style="@style/edit_15"
+        android:layout_marginTop="@dimen/_130sdp"
+        android:drawableLeft="@drawable/person2"
+        android:hint="Enter Your Name"
+        android:inputType="text"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/edttxt_email"
+        style="@style/edit_15"
+        android:layout_below="@id/edttxt_name"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:drawableLeft="@drawable/mail"
+        android:hint="Enter Your Email"
+        android:inputType="textEmailAddress"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/edttxt_mobile"
+        style="@style/edit_15"
+        android:layout_below="@id/edttxt_email"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:drawableLeft="@drawable/phone"
+        android:hint="Enter Your Phone Number"
+        android:inputType="phone"
+        android:maxLength="10"
+        android:textStyle="bold" />
+
+    <RadioGroup
+        android:id="@+id/radiogrp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edttxt_mobile"
+        android:layout_marginHorizontal="@dimen/_15sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:orientation="horizontal">
+
+        <RadioButton
+            style="@style/radio_15"
+            android:id="@+id/radiobtn_male"
+            android:text="Male"
+            android:textStyle="bold" />
+
+        <RadioButton
+            style="@style/radio_15"
+            android:id="@+id/radiobtn_female"
+            android:text="Female"
+            android:textStyle="bold" />
+
+    </RadioGroup>
+
+    <EditText
+        android:id="@+id/edttxt_regisPass"
+        style="@style/edit_15"
+        android:layout_below="@id/radiogrp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:drawableLeft="@drawable/lock"
+        android:hint="Create Password"
+        android:inputType="textPassword"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/edttxt_confirmPass"
+        style="@style/edit_15"
+        android:layout_below="@id/edttxt_regisPass"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:drawableLeft="@drawable/lock"
+        android:hint="Confirm Password"
+        android:inputType="textPassword"
+        android:textStyle="bold" />
+
+    <Button
+        style="@style/button_15"
+        android:id="@+id/register_btn"
+        android:layout_below="@id/edttxt_confirmPass"
+        android:layout_marginTop="@dimen/_35sdp"
+        android:text="REGISTER"
+        android:textStyle="bold" />
+
+
+</RelativeLayout>

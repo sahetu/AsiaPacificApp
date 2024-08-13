@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    tools:context="asiapacific.app.MainActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/back_img"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_300sdp"
+                android:background="@drawable/login_background" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_60sdp">
+
+                <ImageView
+                    android:id="@+id/main_profile"
+                    android:layout_width="@dimen/_75sdp"
+                    android:layout_height="@dimen/_75sdp"
+                    android:layout_alignParentRight="true"
+                    android:background="@drawable/person" />
+
+                <TextView
+                    style="@style/text_25"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@id/main_profile"
+                    android:text="Already Have an Account?"
+                    android:textStyle="bold" />
+
+            </RelativeLayout>
+
+            <EditText
+                android:id="@+id/main_email"
+                style="@style/edit_15"
+                android:layout_marginTop="@dimen/_250sdp"
+                android:drawableLeft="@drawable/mail"
+                android:hint="Enter Your Email"
+                android:inputType="textEmailAddress" />
+
+            <EditText
+                android:id="@+id/main_pass"
+                style="@style/edit_15"
+                android:layout_below="@id/main_email"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:drawableLeft="@drawable/lock"
+                android:hint="Enter Password"
+                android:inputType="textPassword" />
+
+            <Button
+                style="@style/button_15"
+                android:id="@+id/login_btn"
+                android:layout_below="@id/main_pass"
+                android:layout_marginTop="@dimen/_35sdp"
+                android:text="LOGIN"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/frgtpass"
+                style="@style/text_15"
+                android:layout_below="@id/login_btn"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:text="FORGOT PASSWORD?"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/or_txt"
+                style="@style/text_15"
+                android:layout_below="@id/frgtpass"
+                android:layout_centerHorizontal="true"
+                android:layout_marginVertical="@dimen/_25sdp"
+                android:text="OR"
+                android:textColor="@color/offblack"
+                android:textStyle="bold" />
+
+            <RelativeLayout
+                android:id="@+id/main_social_layout"
+                android:layout_centerHorizontal="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/or_txt">
+
+                <ImageView
+                    android:id="@+id/google_img"
+                    android:layout_width="@dimen/_40sdp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:src="@drawable/google" />
+
+                <ImageView
+                    android:layout_marginLeft="@dimen/_20sdp"
+                    android:layout_toRightOf="@id/google_img"
+                    android:id="@+id/facebook_img"
+                    android:layout_width="@dimen/_40sdp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:src="@drawable/facebook" />
+
+            </RelativeLayout>
+
+            <TextView
+                style="@style/text_15"
+                android:layout_below="@+id/main_social_layout"
+                android:id="@+id/new_user"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/_30sdp"
+                android:text="New User? Register Now"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+
+</RelativeLayout>

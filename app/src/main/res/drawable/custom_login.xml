@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item android:state_pressed="true">
+        <shape>
+            <corners android:radius="20dp"/>
+            <gradient android:startColor="@color/offblack"
+                android:centerColor="@color/white"
+                android:endColor="@color/login_btn"
+                android:angle="135"/>
+
+        </shape>
+    </item>
+
+    <item>
+        <shape >
+            <corners android:radius="20dp"/>
+            <solid android:color="@color/login_btn"/>
+
+        </shape>
+    </item>
+
+
+
+
+</selector>

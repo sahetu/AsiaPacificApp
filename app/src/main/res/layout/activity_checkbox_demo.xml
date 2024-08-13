@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".CheckboxDemoActivity">
+
+    <CheckBox
+        android:id="@+id/checkbox_ahmedabad"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ahmedabad" />
+
+    <CheckBox
+        android:id="@+id/checkbox_vadodara"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Vadodara" />
+
+    <CheckBox
+        android:id="@+id/checkbox_surat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Surat" />
+
+    <CheckBox
+        android:id="@+id/checkbox_rajkot"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Rajkot" />
+
+    <CheckBox
+        android:id="@+id/checkbox_gandhinagar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Gandhinagar" />
+
+    <Button
+        android:layout_marginTop="@dimen/_20sdp"
+        android:id="@+id/checkbox_show"
+        android:text="Show Selected City"
+        style="@style/button_15"/>
+
+    <Spinner
+        android:popupBackground="@android:color/darker_gray"
+        android:background="@color/login_btn"
+        android:id="@+id/spinner"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_marginHorizontal="@dimen/_15sdp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>
