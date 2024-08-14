@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ListDemoActivity">
+
+    <!--<ListView
+        android:id="@+id/listview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="@color/login_btn"
+        android:dividerHeight="@dimen/_1sdp" />-->
+
+    <AutoCompleteTextView
+        android:id="@+id/autocomplete"
+        android:hint="Search Name"
+        android:layout_marginVertical="@dimen/_5sdp"
+        android:layout_marginHorizontal="@dimen/_10sdp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <MultiAutoCompleteTextView
+        android:id="@+id/multiautocomplete"
+        android:hint="Search Multiple Name"
+        android:layout_marginVertical="@dimen/_5sdp"
+        android:layout_marginHorizontal="@dimen/_10sdp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <GridView
+        android:numColumns="auto_fit"
+        android:id="@+id/listview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>
