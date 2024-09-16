@@ -13,7 +13,7 @@
         android:theme="@style/Theme.Prince"
         tools:targetApi="31">
         <activity
-            android:name=".ListDemoActivity"
+            android:name=".CustomListActivity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,9 +22,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".CheckboxDemoActivity"
+            android:name=".ListDemoActivity"
             android:exported="true">
         </activity>
+        <activity
+            android:name=".CheckboxDemoActivity"
+            android:exported="true"></activity>
         <activity
             android:name=".RegisterSuccess"
             android:exported="false" />
@@ -36,7 +39,7 @@
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
 
         <meta-data
             android:name="preloaded_fonts"
