@@ -1,6 +1,7 @@
 package asiapacific.app;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -51,6 +52,14 @@ public class CustomListAdapter extends BaseAdapter {
 
         name.setText(nameArray[i]);
         imageView.setImageResource(imageArray[i]);
+
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, CategoryDetailActivity.class);
+                context.startActivity(intent);
+            }
+        });
 
         return view;
     }

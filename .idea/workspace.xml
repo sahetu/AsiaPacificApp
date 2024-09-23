@@ -5,6 +5,11 @@
       <config />
     </shared>
     <layouts>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_category_detail.xml">
+        <config>
+          <theme>@style/Theme.Prince</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_category_list.xml">
         <config>
           <theme>@style/Theme.Prince</theme>
@@ -66,13 +71,13 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="03a1a614-9389-4ecb-941a-42f8163e6299" name="Changes" comment="Custom Listview Second And Splash">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/asiapacific/app/CategoryAdapter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/asiapacific/app/CategoryListActivity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_category_list.xml" afterDir="false" />
+    <list default="true" id="03a1a614-9389-4ecb-941a-42f8163e6299" name="Changes" comment="Category Grid">
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/asiapacific/app/CategoryDetailActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_category_detail.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/asiapacific/app/SplashActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/asiapacific/app/SplashActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/asiapacific/app/CategoryAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/asiapacific/app/CategoryAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/asiapacific/app/CustomListAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/asiapacific/app/CustomListAdapter.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -183,6 +188,9 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Android\AsiaPacificApp\app\src\main\res\drawable" />
       <recent name="D:\Android Github Code\prince\app\src\main\res\font" />
+    </key>
+    <key name="android.template.-1970739887">
+      <recent name="asiapacific.app" />
     </key>
     <key name="android.template.815083588">
       <recent name="asiapacific.app" />
@@ -338,7 +346,15 @@
       <option name="project" value="LOCAL" />
       <updated>1726640792011</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Category Grid">
+      <option name="closed" value="true" />
+      <created>1726725051011</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1726725051011</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -347,6 +363,7 @@
     <MESSAGE value="List &amp; Grid" />
     <MESSAGE value="Custom Listview" />
     <MESSAGE value="Custom Listview Second And Splash" />
-    <option name="LAST_COMMIT_MESSAGE" value="Custom Listview Second And Splash" />
+    <MESSAGE value="Category Grid" />
+    <option name="LAST_COMMIT_MESSAGE" value="Category Grid" />
   </component>
 </project>

@@ -1,7 +1,9 @@
 package asiapacific.app;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -49,6 +51,18 @@ public class CategoryAdapter extends BaseAdapter {
 
         name.setText(arrayList.get(i).getName());
         imageView.setImageResource(arrayList.get(i).getImage());
+
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, CategoryDetailActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("NAME",arrayList.get(i).getName());
+                bundle.putInt("IMAGE",arrayList.get(i).getImage());
+                intent.putExtras(bundle);
+                context.startActivity(intent);
+            }
+        });
 
         return view;
     }
