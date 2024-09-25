@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ActivityToFragmentActivity">
+
+    <Button
+        android:layout_marginTop="@dimen/_10sdp"
+        android:id="@+id/open_fragment"
+        android:text="Open Fragment"
+        style="@style/button_15"/>
+
+    <RelativeLayout
+        android:background="@color/login_btn"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:id="@+id/activity_relative"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</LinearLayout>

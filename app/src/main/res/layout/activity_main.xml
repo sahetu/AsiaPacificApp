@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
+    style="@style/background"
     tools:context="asiapacific.app.MainActivity">
 
     <ScrollView
@@ -18,7 +18,7 @@
             <ImageView
                 android:id="@+id/back_img"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_300sdp"
+                android:layout_height="@dimen/_230sdp"
                 android:background="@drawable/login_background" />
 
             <RelativeLayout
