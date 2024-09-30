@@ -32,7 +32,8 @@ public class SplashActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                new ToastCommonMethod(SplashActivity.this,ActivityToFragmentActivity.class);
+                //new ToastCommonMethod(SplashActivity.this,ActivityToFragmentActivity.class);
+                new ToastCommonMethod(SplashActivity.this,TabDemoActivity.class);
                 finish();
             }
         },3000);
