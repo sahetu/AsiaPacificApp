@@ -40,12 +40,22 @@
           <theme>@style/Theme.Prince</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_recycler_demo.xml">
+        <config>
+          <theme>@style/Theme.Prince</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_registration.xml">
         <config>
           <theme>@style/Theme.Prince</theme>
         </config>
       </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_splash.xml">
+        <config>
+          <theme>@style/Theme.Prince</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_tab_demo.xml">
         <config>
           <theme>@style/Theme.Prince</theme>
         </config>
@@ -60,7 +70,27 @@
           <theme>@style/Theme.Prince</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/custom_recycler.xml">
+        <config>
+          <theme>@style/Theme.Prince</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_call.xml">
+        <config>
+          <theme>@style/Theme.Prince</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_chat.xml">
+        <config>
+          <theme>@style/Theme.Prince</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_demo.xml">
+        <config>
+          <theme>@style/Theme.Prince</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_status.xml">
         <config>
           <theme>@style/Theme.Prince</theme>
         </config>
@@ -81,8 +111,15 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="03a1a614-9389-4ecb-941a-42f8163e6299" name="Changes" comment="Dark Theme">
+    <list default="true" id="03a1a614-9389-4ecb-941a-42f8163e6299" name="Changes" comment="Tab Demo">
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/asiapacific/app/RecyclerDemoActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/asiapacific/app/RecyclerDemoAdapter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_recycler_demo.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/custom_recycler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/asiapacific/app/CustomListAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/asiapacific/app/CustomListAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/asiapacific/app/SplashActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/asiapacific/app/SplashActivity.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -139,9 +176,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="layoutResourceFile" />
         <option value="layoutResourceFile_vertical" />
         <option value="Class" />
+        <option value="layoutResourceFile" />
       </list>
     </option>
   </component>
@@ -187,6 +224,9 @@
     <key name="CreateClassDialog.RecentsKey">
       <recent name="asiapacific.app" />
     </key>
+    <key name="android.template.-1042072429">
+      <recent name="asiapacific.app" />
+    </key>
     <key name="android.template.2019330475">
       <recent name="asiapacific.app" />
     </key>
@@ -195,6 +235,9 @@
       <recent name="D:\Android Github Code\prince\app\src\main\res\font" />
     </key>
     <key name="android.template.-1970739887">
+      <recent name="asiapacific.app" />
+    </key>
+    <key name="android.template.1556812309">
       <recent name="asiapacific.app" />
     </key>
     <key name="android.template.815083588">
@@ -378,7 +421,15 @@
       <option name="project" value="LOCAL" />
       <updated>1727245029000</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Tab Demo">
+      <option name="closed" value="true" />
+      <created>1727676998048</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1727676998048</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -390,6 +441,7 @@
     <MESSAGE value="Category Grid" />
     <MESSAGE value="Category Detail" />
     <MESSAGE value="Dark Theme" />
-    <option name="LAST_COMMIT_MESSAGE" value="Dark Theme" />
+    <MESSAGE value="Tab Demo" />
+    <option name="LAST_COMMIT_MESSAGE" value="Tab Demo" />
   </component>
 </project>
