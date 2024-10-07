@@ -1,6 +1,8 @@
 package asiapacific.app;
 
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -20,13 +22,19 @@ public class Registration extends AppCompatActivity {
     RadioGroup radioGroup;
 
     String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+    SQLiteDatabase db;
 
+    String sGender;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_registration);
+
+        db = openOrCreateDatabase("UserApp.db",MODE_PRIVATE,null);
+        String tableQuery = "CREATE TABLE IF NOT EXISTS USERS(USERID INTEGER PRIMARY KEY AUTOINCREMENT,NAME VARCHAR(100),EMAIL VARCHAR(100),CONTACT BIGINT(10),GENDER VARCHAR(10),PASSWORD VARCHAR(20))";
+        db.execSQL(tableQuery);
 
         edttxt_name = findViewById(R.id.edttxt_name);
         edttxt_email = findViewById(R.id.edttxt_email);
@@ -44,7 +52,8 @@ public class Registration extends AppCompatActivity {
                 /*i = R.id.radiobtn_male;
                 i = R.id.radiobtn_female;*/
                 RadioButton rb = findViewById(i);
-                new ToastCommonMethod(Registration.this,rb.getText().toString());
+                sGender = rb.getText().toString();
+                new ToastCommonMethod(Registration.this,sGender);
             }
         });
 
@@ -84,9 +93,19 @@ public class Registration extends AppCompatActivity {
                     edttxt_confirmPass.setError("Password Does Not Match");
                 }
                 else {
-                    new ToastCommonMethod(Registration.this,"Register Successfully");
-                    Intent intent = new Intent(Registration.this, RegisterSuccess.class);
-                    startActivity(intent);
+                    String selectQuery = "SELECT * FROM USERS WHERE EMAIL='"+edttxt_email.getText().toString()+"' OR CONTACT='"+edttxt_mobile.getText().toString()+"'";
+                    Cursor cursor = db.rawQuery(selectQuery,null);
+                    if(cursor.getCount()>0){
+                        new ToastCommonMethod(Registration.this,"Email Id/Contact No. Already Registered");
+                    }
+                    else{
+                        String insertQuery = "INSERT INTO USERS VALUES(NULL,'"+edttxt_name.getText().toString()+"','"+edttxt_email.getText().toString()+"','"+edttxt_mobile.getText().toString()+"','"+sGender+"','"+edttxt_regisPass.getText().toString()+"')";
+                        db.execSQL(insertQuery);
+
+                        new ToastCommonMethod(Registration.this,"Register Successfully");
+                        Intent intent = new Intent(Registration.this, RegisterSuccess.class);
+                        startActivity(intent);
+                    }
                 }
             }
         });

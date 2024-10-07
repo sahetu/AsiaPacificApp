@@ -33,7 +33,7 @@ public class SplashActivity extends AppCompatActivity {
             @Override
             public void run() {
                 //new ToastCommonMethod(SplashActivity.this,ActivityToFragmentActivity.class);
-                new ToastCommonMethod(SplashActivity.this,RecyclerDemoActivity.class);
+                new ToastCommonMethod(SplashActivity.this,MainActivity.class);
                 finish();
             }
         },3000);

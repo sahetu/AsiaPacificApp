@@ -116,12 +116,10 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="03a1a614-9389-4ecb-941a-42f8163e6299" name="Changes" comment="RecyclerDemo">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/asiapacific/app/RecycerSecondActivity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/asiapacific/app/RecyclerSecondAdapter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_recycer_second.xml" afterDir="false" />
+    <list default="true" id="03a1a614-9389-4ecb-941a-42f8163e6299" name="Changes" comment="RecyclerSecondDemo">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/asiapacific/app/Registration.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/asiapacific/app/Registration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/asiapacific/app/SplashActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/asiapacific/app/SplashActivity.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -218,8 +216,8 @@
     "cidr.known.project.marker": "true",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/Android/AsiaPacificApp/app/src/main/res/drawable",
-    "settings.editor.selected.configurable": "preferences.lookFeel"
+    "last_opened_file_path": "C:/Users/defde/Downloads",
+    "settings.editor.selected.configurable": "editor.preferences.fonts.default"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -442,7 +440,15 @@
       <option name="project" value="LOCAL" />
       <updated>1727763300382</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="RecyclerSecondDemo">
+      <option name="closed" value="true" />
+      <created>1727850044368</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1727850044368</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -456,6 +462,7 @@
     <MESSAGE value="Dark Theme" />
     <MESSAGE value="Tab Demo" />
     <MESSAGE value="RecyclerDemo" />
-    <option name="LAST_COMMIT_MESSAGE" value="RecyclerDemo" />
+    <MESSAGE value="RecyclerSecondDemo" />
+    <option name="LAST_COMMIT_MESSAGE" value="RecyclerSecondDemo" />
   </component>
 </project>
