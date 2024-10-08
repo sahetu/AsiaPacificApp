@@ -1,5 +1,6 @@
 package asiapacific.app;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.animation.AlphaAnimation;
@@ -14,11 +15,14 @@ import androidx.core.view.WindowInsetsCompat;
 public class SplashActivity extends AppCompatActivity {
 
     ImageView imageView;
+    SharedPreferences sp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+
+        sp = getSharedPreferences(ConstantSp.PREF,MODE_PRIVATE);
 
         imageView = findViewById(R.id.splash_image);
 
@@ -32,9 +36,16 @@ public class SplashActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                //new ToastCommonMethod(SplashActivity.this,ActivityToFragmentActivity.class);
-                new ToastCommonMethod(SplashActivity.this,MainActivity.class);
-                finish();
+                if(sp.getString(ConstantSp.USERID,"").equalsIgnoreCase("")){
+                    //new ToastCommonMethod(SplashActivity.this,ActivityToFragmentActivity.class);
+                    new ToastCommonMethod(SplashActivity.this,MainActivity.class);
+                    finish();
+                }
+                else{
+                    //new ToastCommonMethod(SplashActivity.this,ActivityToFragmentActivity.class);
+                    new ToastCommonMethod(SplashActivity.this,ProfileActivity.class);
+                    finish();
+                }
             }
         },3000);
     }
