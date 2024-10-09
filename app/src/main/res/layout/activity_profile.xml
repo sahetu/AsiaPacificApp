@@ -81,20 +81,37 @@
         android:inputType="textPassword"
         android:textStyle="bold" />
 
-    <!--<Button
+    <Button
+        android:id="@+id/edit_btn"
         style="@style/button_15"
-        android:id="@+id/register_btn"
         android:layout_below="@id/edttxt_confirmPass"
         android:layout_marginTop="@dimen/_35sdp"
-        android:text="REGISTER"
-        android:textStyle="bold" />-->
+        android:text="Edit Profile"
+        android:textStyle="bold" />
 
     <Button
+        android:visibility="gone"
+        android:id="@+id/register_btn"
         style="@style/button_15"
+        android:layout_below="@id/edit_btn"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:text="Submit"
+        android:textStyle="bold" />
+
+    <Button
         android:id="@+id/logout_btn"
-        android:layout_below="@id/edttxt_confirmPass"
-        android:layout_marginTop="@dimen/_35sdp"
+        style="@style/button_15"
+        android:layout_below="@id/register_btn"
+        android:layout_marginTop="@dimen/_20sdp"
         android:text="Logout"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/delete_btn"
+        style="@style/button_15"
+        android:layout_below="@id/logout_btn"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:text="Delete Profile"
         android:textStyle="bold" />
 
 

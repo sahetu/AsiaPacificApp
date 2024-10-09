@@ -1,5 +1,7 @@
 package asiapacific.app;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
@@ -30,7 +32,7 @@ public class ProfileActivity extends AppCompatActivity {
     String sGender;
     SharedPreferences sp;
 
-    Button logout;
+    Button logout,editProfile,submit,deleteProfile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,13 +45,84 @@ public class ProfileActivity extends AppCompatActivity {
         String tableQuery = "CREATE TABLE IF NOT EXISTS USERS(USERID INTEGER PRIMARY KEY AUTOINCREMENT,NAME VARCHAR(100),EMAIL VARCHAR(100),CONTACT BIGINT(10),GENDER VARCHAR(10),PASSWORD VARCHAR(20))";
         db.execSQL(tableQuery);
 
+        editProfile = findViewById(R.id.edit_btn);
+        submit = findViewById(R.id.register_btn);
+        deleteProfile = findViewById(R.id.delete_btn);
+
+        deleteProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(ProfileActivity.this);
+                builder.setIcon(R.mipmap.ic_launcher);
+                builder.setTitle("Delete Profile");
+                builder.setMessage("Are You Sure Want To Delete Your Profile!");
+                builder.setCancelable(false);
+
+                builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        String deleteQuery = "DELETE FROM USERS WHERE USERID='"+sp.getString(ConstantSp.USERID,"")+"'";
+                        db.execSQL(deleteQuery);
+                        sp.edit().clear().commit();
+                        new ToastCommonMethod(ProfileActivity.this, MainActivity.class);
+                        finish();
+                    }
+                });
+
+                builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.dismiss();
+                    }
+                });
+
+                builder.setNeutralButton("Rate Us", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        new ToastCommonMethod(ProfileActivity.this,"Rate Us");
+                        dialogInterface.dismiss();
+                    }
+                });
+
+                builder.show();
+            }
+        });
+
         logout = findViewById(R.id.logout_btn);
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                sp.edit().clear().commit();
-                new ToastCommonMethod(ProfileActivity.this, MainActivity.class);
-                finish();
+                AlertDialog.Builder builder = new AlertDialog.Builder(ProfileActivity.this);
+                builder.setIcon(R.mipmap.ic_launcher);
+                builder.setTitle("Logout");
+                builder.setMessage("Are You Sure Want To Logout!");
+                builder.setCancelable(false);
+
+                builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        sp.edit().clear().commit();
+                        new ToastCommonMethod(ProfileActivity.this, MainActivity.class);
+                        finish();
+                    }
+                });
+
+                builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.dismiss();
+                    }
+                });
+
+                builder.setNeutralButton("Rate Us", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        new ToastCommonMethod(ProfileActivity.this,"Rate Us");
+                        dialogInterface.dismiss();
+                    }
+                });
+
+                builder.show();
             }
         });
 
@@ -76,7 +149,7 @@ public class ProfileActivity extends AppCompatActivity {
         });
 
 
-        /*register_btn.setOnClickListener(new View.OnClickListener() {
+        submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (edttxt_name.getText().toString().trim().equals("")){
@@ -111,26 +184,38 @@ public class ProfileActivity extends AppCompatActivity {
                     edttxt_confirmPass.setError("Password Does Not Match");
                 }
                 else {
-                    String selectQuery = "SELECT * FROM USERS WHERE EMAIL='"+edttxt_email.getText().toString()+"' OR CONTACT='"+edttxt_mobile.getText().toString()+"'";
+                    String selectQuery = "SELECT * FROM USERS WHERE USERID='"+sp.getString(ConstantSp.USERID,"")+"'";
                     Cursor cursor = db.rawQuery(selectQuery,null);
                     if(cursor.getCount()>0){
-                        new ToastCommonMethod(ProfileActivity.this,"Email Id/Contact No. Already Registered");
+                        String updateQuery = "UPDATE USERS SET NAME='"+edttxt_name.getText().toString()+"',EMAIL='"+edttxt_email.getText().toString()+"',CONTACT='"+edttxt_mobile.getText().toString()+"',GENDER='"+sGender+"',PASSWORD='"+edttxt_regisPass.getText().toString()+"' WHERE USERID='"+sp.getString(ConstantSp.USERID,"")+"' ";
+                        db.execSQL(updateQuery);
+                        new ToastCommonMethod(ProfileActivity.this,"Profile Update Successfully");
+
+                        sp.edit().putString(ConstantSp.NAME,edttxt_name.getText().toString()).commit();
+                        sp.edit().putString(ConstantSp.EMAIL,edttxt_email.getText().toString()).commit();
+                        sp.edit().putString(ConstantSp.CONTACT,edttxt_mobile.getText().toString()).commit();
+                        sp.edit().putString(ConstantSp.PASSWORD,edttxt_regisPass.getText().toString()).commit();
+                        sp.edit().putString(ConstantSp.GENDER,sGender).commit();
+
+                        setData(false);
                     }
                     else{
-                        String insertQuery = "INSERT INTO USERS VALUES(NULL,'"+edttxt_name.getText().toString()+"','"+edttxt_email.getText().toString()+"','"+edttxt_mobile.getText().toString()+"','"+sGender+"','"+edttxt_regisPass.getText().toString()+"')";
-                        db.execSQL(insertQuery);
-
-                        new ToastCommonMethod(ProfileActivity.this,"Register Successfully");
-                        Intent intent = new Intent(ProfileActivity.this, RegisterSuccess.class);
-                        startActivity(intent);
+                        new ToastCommonMethod(ProfileActivity.this,"Invalid User");
                     }
                 }
             }
-        });*/
-        setData();
+        });
+        setData(false);
+
+        editProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setData(true);
+            }
+        });
     }
 
-    private void setData() {
+    private void setData(boolean isEnable) {
         edttxt_name.setText(sp.getString(ConstantSp.NAME,""));
         edttxt_email.setText(sp.getString(ConstantSp.EMAIL,""));
         edttxt_mobile.setText(sp.getString(ConstantSp.CONTACT,""));
@@ -150,6 +235,25 @@ public class ProfileActivity extends AppCompatActivity {
         else{
             radiobtn_male.setChecked(false);
             radiobtn_female.setChecked(false);
+        }
+
+        edttxt_name.setEnabled(isEnable);
+        edttxt_email.setEnabled(isEnable);
+        edttxt_mobile.setEnabled(isEnable);
+        edttxt_regisPass.setEnabled(isEnable);
+        edttxt_confirmPass.setEnabled(isEnable);
+        radiobtn_male.setEnabled(isEnable);
+        radiobtn_female.setEnabled(isEnable);
+
+        if(isEnable == true){ //true
+            edttxt_confirmPass.setVisibility(View.VISIBLE);
+            editProfile.setVisibility(View.GONE);
+            submit.setVisibility(View.VISIBLE);
+        }
+        else{
+            edttxt_confirmPass.setVisibility(View.GONE);
+            editProfile.setVisibility(View.VISIBLE);
+            submit.setVisibility(View.GONE);
         }
 
     }
