@@ -5,6 +5,11 @@
       <config />
     </shared>
     <layouts>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_bottom_demo.xml">
+        <config>
+          <theme>@style/Theme.Prince</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_category_detail.xml">
         <config>
           <theme>@style/Theme.Prince</theme>
@@ -40,6 +45,16 @@
           <theme>@style/Theme.Prince</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_nav_demo.xml">
+        <config>
+          <theme>@style/Theme.Prince</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_profile.xml">
+        <config>
+          <theme>@style/Theme.Prince</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_recycer_second.xml">
         <config>
           <theme>@style/Theme.Prince</theme>
@@ -66,6 +81,16 @@
         </config>
       </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_to_fragment.xml">
+        <config>
+          <theme>@style/Theme.Prince</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/app_bar_nav_demo.xml">
+        <config>
+          <theme>@style/Theme.Prince.NoActionBar</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/content_nav_demo.xml">
         <config>
           <theme>@style/Theme.Prince</theme>
         </config>
@@ -110,16 +135,84 @@
           <theme>@style/Theme.Prince</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/nav_header_nav_demo.xml">
+        <config>
+          <theme>@style/Theme.Prince</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/menu/activity_main_drawer.xml">
+        <config>
+          <theme>@style/Theme.Prince</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/menu/nav_demo.xml">
+        <config>
+          <theme>@style/Theme.Prince</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/navigation/mobile_navigation.xml">
+        <config>
+          <theme>@style/Theme.Prince</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/navigation/mobile_navigation2.xml">
+        <config>
+          <theme>@style/Theme.Prince</theme>
+        </config>
+      </layout>
     </layouts>
   </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="03a1a614-9389-4ecb-941a-42f8163e6299" name="Changes" comment="RecyclerSecondDemo">
+    <list default="true" id="03a1a614-9389-4ecb-941a-42f8163e6299" name="Changes" comment="CRUD Operation">
+      <change afterPath="$PROJECT_DIR$/.idea/navEditor.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/asiapacific/app/BottomDemoActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/asiapacific/app/NavDemoActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/asiapacific/app/ui/dashboard/DashboardFragment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/asiapacific/app/ui/dashboard/DashboardViewModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/asiapacific/app/ui/gallery/GalleryFragment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/asiapacific/app/ui/gallery/GalleryViewModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/asiapacific/app/ui/home/HomeFragment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/asiapacific/app/ui/home/HomeViewModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/asiapacific/app/ui/notifications/NotificationsFragment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/asiapacific/app/ui/notifications/NotificationsViewModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/asiapacific/app/ui/slideshow/SlideshowFragment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/asiapacific/app/ui/slideshow/SlideshowViewModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_dashboard_black_24dp.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_home_black_24dp.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_menu_camera.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_menu_gallery.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_menu_slideshow.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_notifications_black_24dp.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/side_nav_bar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_bottom_demo.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_nav_demo.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/app_bar_nav_demo.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/content_nav_demo.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_dashboard.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_gallery.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_notifications.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_slideshow.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/nav_header_nav_demo.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/menu/activity_main_drawer.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/menu/bottom_nav_menu.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/menu/nav_demo.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/navigation/mobile_navigation.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/navigation/mobile_navigation2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/values-land/dimens.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/values-w1240dp/dimens.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/values-w600dp/dimens.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/asiapacific/app/Registration.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/asiapacific/app/Registration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/asiapacific/app/SplashActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/asiapacific/app/SplashActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/themes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/themes.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -212,6 +305,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.cidr.known.project.marker": "true",
     "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
     "git-widget-placeholder": "master",
@@ -227,7 +321,22 @@
     <key name="android.template.-1042072429">
       <recent name="asiapacific.app" />
     </key>
+    <key name="android.template.988661344">
+      <recent name="asiapacific.app" />
+    </key>
     <key name="android.template.2019330475">
+      <recent name="asiapacific.app" />
+    </key>
+    <key name="android.template.-1340987423">
+      <recent name="asiapacific.app" />
+    </key>
+    <key name="android.template.-970306235">
+      <recent name="asiapacific.app" />
+    </key>
+    <key name="android.template.598591980">
+      <recent name="asiapacific.app" />
+    </key>
+    <key name="android.template.-1023012585">
       <recent name="asiapacific.app" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
@@ -243,19 +352,10 @@
     <key name="android.template.815083588">
       <recent name="asiapacific.app" />
     </key>
-    <key name="android.template.-970306235">
-      <recent name="asiapacific.app" />
-    </key>
-    <key name="android.template.598591980">
-      <recent name="asiapacific.app" />
-    </key>
     <key name="android.template.1711815864">
       <recent name="asiapacific.app" />
     </key>
     <key name="android.template.-101539701">
-      <recent name="asiapacific.app" />
-    </key>
-    <key name="android.template.-1023012585">
       <recent name="asiapacific.app" />
     </key>
   </component>
@@ -448,7 +548,31 @@
       <option name="project" value="LOCAL" />
       <updated>1727850044368</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Signup Database">
+      <option name="closed" value="true" />
+      <created>1728280724262</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1728280724262</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Login Database">
+      <option name="closed" value="true" />
+      <created>1728367980688</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1728367980688</updated>
+    </task>
+    <task id="LOCAL-00017" summary="CRUD Operation">
+      <option name="closed" value="true" />
+      <created>1728455507530</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1728455507530</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -463,6 +587,9 @@
     <MESSAGE value="Tab Demo" />
     <MESSAGE value="RecyclerDemo" />
     <MESSAGE value="RecyclerSecondDemo" />
-    <option name="LAST_COMMIT_MESSAGE" value="RecyclerSecondDemo" />
+    <MESSAGE value="Signup Database" />
+    <MESSAGE value="Login Database" />
+    <MESSAGE value="CRUD Operation" />
+    <option name="LAST_COMMIT_MESSAGE" value="CRUD Operation" />
   </component>
 </project>
