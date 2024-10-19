@@ -43,8 +43,8 @@ public class SplashActivity extends AppCompatActivity {
                 }
                 else{
                     //new ToastCommonMethod(SplashActivity.this,ActivityToFragmentActivity.class);
-                    //new ToastCommonMethod(SplashActivity.this,ProfileActivity.class);
-                    new ToastCommonMethod(SplashActivity.this,BottomDemoActivity.class);
+                    new ToastCommonMethod(SplashActivity.this,ProfileActivity.class);
+                    //new ToastCommonMethod(SplashActivity.this,BottomDemoActivity.class);
                     finish();
                 }
             }

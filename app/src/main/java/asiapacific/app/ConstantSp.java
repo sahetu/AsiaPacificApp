@@ -2,6 +2,8 @@ package asiapacific.app;
 
 public class ConstantSp {
 
+    public static final String BASE_URL = "http://192.168.122.61/AsiaCollegeApi/";
+
     public static final String PREF = "pref";
     public static final String USERID = "userid";
     public static final String NAME = "name";

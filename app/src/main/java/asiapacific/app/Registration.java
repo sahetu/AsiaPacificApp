@@ -1,8 +1,10 @@
 package asiapacific.app;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -12,6 +14,11 @@ import android.widget.RadioGroup;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.HashMap;
 
 import asiapacific.app.R;
 
@@ -57,7 +64,6 @@ public class Registration extends AppCompatActivity {
             }
         });
 
-
         register_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -93,18 +99,16 @@ public class Registration extends AppCompatActivity {
                     edttxt_confirmPass.setError("Password Does Not Match");
                 }
                 else {
-                    String selectQuery = "SELECT * FROM USERS WHERE EMAIL='"+edttxt_email.getText().toString()+"' OR CONTACT='"+edttxt_mobile.getText().toString()+"'";
-                    Cursor cursor = db.rawQuery(selectQuery,null);
-                    if(cursor.getCount()>0){
-                        new ToastCommonMethod(Registration.this,"Email Id/Contact No. Already Registered");
+                    //doSqliteSignup();
+                    if(new ConnectionDetector(Registration.this).networkConnected()){
+                        //new ToastCommonMethod(Registration.this,"Internet/Wifi Connected");
+                        //AsyncTask
+                        //Volley
+                        //Retrofit
+                        new doSignup().execute();
                     }
                     else{
-                        String insertQuery = "INSERT INTO USERS VALUES(NULL,'"+edttxt_name.getText().toString()+"','"+edttxt_email.getText().toString()+"','"+edttxt_mobile.getText().toString()+"','"+sGender+"','"+edttxt_regisPass.getText().toString()+"')";
-                        db.execSQL(insertQuery);
-
-                        new ToastCommonMethod(Registration.this,"Register Successfully");
-                        Intent intent = new Intent(Registration.this, RegisterSuccess.class);
-                        startActivity(intent);
+                        new ConnectionDetector(Registration.this).networkDisconnected();
                     }
                 }
             }
@@ -125,5 +129,65 @@ public class Registration extends AppCompatActivity {
         });*/
 
 
+    }
+
+    private void doSqliteSignup() {
+        String selectQuery = "SELECT * FROM USERS WHERE EMAIL='"+edttxt_email.getText().toString()+"' OR CONTACT='"+edttxt_mobile.getText().toString()+"'";
+        Cursor cursor = db.rawQuery(selectQuery,null);
+        if(cursor.getCount()>0){
+            new ToastCommonMethod(Registration.this,"Email Id/Contact No. Already Registered");
+        }
+        else{
+            String insertQuery = "INSERT INTO USERS VALUES(NULL,'"+edttxt_name.getText().toString()+"','"+edttxt_email.getText().toString()+"','"+edttxt_mobile.getText().toString()+"','"+sGender+"','"+edttxt_regisPass.getText().toString()+"')";
+            db.execSQL(insertQuery);
+
+            new ToastCommonMethod(Registration.this,"Register Successfully");
+            Intent intent = new Intent(Registration.this, RegisterSuccess.class);
+            startActivity(intent);
+        }
+    }
+
+    private class doSignup extends AsyncTask<String,String,String> {
+
+        ProgressDialog pd;
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            pd = new ProgressDialog(Registration.this);
+            pd.setMessage("Please Wait...");
+            pd.setCancelable(false);
+            pd.show();
+        }
+
+        @Override
+        protected String doInBackground(String... strings) {
+            HashMap<String,String> hashMap = new HashMap<>();
+            hashMap.put("name",edttxt_name.getText().toString());
+            hashMap.put("email",edttxt_email.getText().toString());
+            hashMap.put("contact",edttxt_mobile.getText().toString());
+            hashMap.put("password",edttxt_regisPass.getText().toString());
+            hashMap.put("gender",sGender);
+            return new MakeServiceCall().MakeServiceCall(ConstantSp.BASE_URL+"signup.php",MakeServiceCall.POST,hashMap);
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
+            pd.dismiss();
+            try {
+                JSONObject object = new JSONObject(s);
+                if(object.getBoolean("status")){
+                    new ToastCommonMethod(Registration.this,object.getString("message"));
+                    Intent intent = new Intent(Registration.this, RegisterSuccess.class);
+                    startActivity(intent);
+                }
+                else{
+                    new ToastCommonMethod(Registration.this,object.getString("message"));
+                }
+            } catch (JSONException e) {
+                throw new RuntimeException(e);
+            }
+        }
     }
 }
