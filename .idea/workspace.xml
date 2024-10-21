@@ -171,15 +171,10 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="03a1a614-9389-4ecb-941a-42f8163e6299" name="Changes" comment="Navigation And Bottom">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/asiapacific/app/ConnectionDetector.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/asiapacific/app/MakeServiceCall.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/connection_checker.xml" afterDir="false" />
+    <list default="true" id="03a1a614-9389-4ecb-941a-42f8163e6299" name="Changes" comment="Signup Using AsyncTask">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/asiapacific/app/ConstantSp.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/asiapacific/app/ConstantSp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/asiapacific/app/Registration.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/asiapacific/app/Registration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/asiapacific/app/SplashActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/asiapacific/app/SplashActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/asiapacific/app/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/asiapacific/app/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/asiapacific/app/ProfileActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/asiapacific/app/ProfileActivity.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -278,7 +273,7 @@
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "D:/Android/AsiaPacificApp/app/src/main/java/asiapacific/app",
-    "settings.editor.selected.configurable": "preferences.lookFeel"
+    "settings.editor.selected.configurable": "editor.preferences.fonts.default"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -557,7 +552,15 @@
       <option name="project" value="LOCAL" />
       <updated>1728885624918</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Signup Using AsyncTask">
+      <option name="closed" value="true" />
+      <created>1729319985474</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1729319985474</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -576,6 +579,7 @@
     <MESSAGE value="Login Database" />
     <MESSAGE value="CRUD Operation" />
     <MESSAGE value="Navigation And Bottom" />
-    <option name="LAST_COMMIT_MESSAGE" value="Navigation And Bottom" />
+    <MESSAGE value="Signup Using AsyncTask" />
+    <option name="LAST_COMMIT_MESSAGE" value="Signup Using AsyncTask" />
   </component>
 </project>

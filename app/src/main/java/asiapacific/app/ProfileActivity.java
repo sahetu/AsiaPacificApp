@@ -1,11 +1,13 @@
 package asiapacific.app;
 
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -18,6 +20,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.HashMap;
 
 public class ProfileActivity extends AppCompatActivity {
 
@@ -184,23 +191,12 @@ public class ProfileActivity extends AppCompatActivity {
                     edttxt_confirmPass.setError("Password Does Not Match");
                 }
                 else {
-                    String selectQuery = "SELECT * FROM USERS WHERE USERID='"+sp.getString(ConstantSp.USERID,"")+"'";
-                    Cursor cursor = db.rawQuery(selectQuery,null);
-                    if(cursor.getCount()>0){
-                        String updateQuery = "UPDATE USERS SET NAME='"+edttxt_name.getText().toString()+"',EMAIL='"+edttxt_email.getText().toString()+"',CONTACT='"+edttxt_mobile.getText().toString()+"',GENDER='"+sGender+"',PASSWORD='"+edttxt_regisPass.getText().toString()+"' WHERE USERID='"+sp.getString(ConstantSp.USERID,"")+"' ";
-                        db.execSQL(updateQuery);
-                        new ToastCommonMethod(ProfileActivity.this,"Profile Update Successfully");
-
-                        sp.edit().putString(ConstantSp.NAME,edttxt_name.getText().toString()).commit();
-                        sp.edit().putString(ConstantSp.EMAIL,edttxt_email.getText().toString()).commit();
-                        sp.edit().putString(ConstantSp.CONTACT,edttxt_mobile.getText().toString()).commit();
-                        sp.edit().putString(ConstantSp.PASSWORD,edttxt_regisPass.getText().toString()).commit();
-                        sp.edit().putString(ConstantSp.GENDER,sGender).commit();
-
-                        setData(false);
+                    //doUpdateSqlite();
+                    if(new ConnectionDetector(ProfileActivity.this).networkConnected()){
+                        new doUpdate().execute();
                     }
                     else{
-                        new ToastCommonMethod(ProfileActivity.this,"Invalid User");
+                        new ConnectionDetector(ProfileActivity.this).networkDisconnected();
                     }
                 }
             }
@@ -213,6 +209,27 @@ public class ProfileActivity extends AppCompatActivity {
                 setData(true);
             }
         });
+    }
+
+    private void doUpdateSqlite() {
+        String selectQuery = "SELECT * FROM USERS WHERE USERID='"+sp.getString(ConstantSp.USERID,"")+"'";
+        Cursor cursor = db.rawQuery(selectQuery,null);
+        if(cursor.getCount()>0){
+            String updateQuery = "UPDATE USERS SET NAME='"+edttxt_name.getText().toString()+"',EMAIL='"+edttxt_email.getText().toString()+"',CONTACT='"+edttxt_mobile.getText().toString()+"',GENDER='"+sGender+"',PASSWORD='"+edttxt_regisPass.getText().toString()+"' WHERE USERID='"+sp.getString(ConstantSp.USERID,"")+"' ";
+            db.execSQL(updateQuery);
+            new ToastCommonMethod(ProfileActivity.this,"Profile Update Successfully");
+
+            sp.edit().putString(ConstantSp.NAME,edttxt_name.getText().toString()).commit();
+            sp.edit().putString(ConstantSp.EMAIL,edttxt_email.getText().toString()).commit();
+            sp.edit().putString(ConstantSp.CONTACT,edttxt_mobile.getText().toString()).commit();
+            sp.edit().putString(ConstantSp.PASSWORD,edttxt_regisPass.getText().toString()).commit();
+            sp.edit().putString(ConstantSp.GENDER,sGender).commit();
+
+            setData(false);
+        }
+        else{
+            new ToastCommonMethod(ProfileActivity.this,"Invalid User");
+        }
     }
 
     private void setData(boolean isEnable) {
@@ -256,5 +273,54 @@ public class ProfileActivity extends AppCompatActivity {
             submit.setVisibility(View.GONE);
         }
 
+    }
+
+    private class doUpdate extends AsyncTask<String,String,String> {
+
+        ProgressDialog pd;
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            pd= new ProgressDialog(ProfileActivity.this);
+            pd.setMessage("Please Wait...");
+            pd.setCancelable(false);
+            pd.show();
+        }
+
+        @Override
+        protected String doInBackground(String... strings) {
+            HashMap<String,String> hashMap = new HashMap<>();
+            hashMap.put("name",edttxt_name.getText().toString());
+            hashMap.put("email",edttxt_email.getText().toString());
+            hashMap.put("contact",edttxt_mobile.getText().toString());
+            hashMap.put("password",edttxt_regisPass.getText().toString());
+            hashMap.put("gender",sGender);
+            hashMap.put("userid",sp.getString(ConstantSp.USERID,""));
+            return new MakeServiceCall().MakeServiceCall(ConstantSp.BASE_URL+"updateProfile.php",MakeServiceCall.POST,hashMap);
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
+            pd.dismiss();
+            try {
+                JSONObject object = new JSONObject(s);
+                if(object.getBoolean("status")){
+                    new ToastCommonMethod(ProfileActivity.this,object.getString("message"));
+                    sp.edit().putString(ConstantSp.NAME,edttxt_name.getText().toString()).commit();
+                    sp.edit().putString(ConstantSp.EMAIL,edttxt_email.getText().toString()).commit();
+                    sp.edit().putString(ConstantSp.CONTACT,edttxt_mobile.getText().toString()).commit();
+                    sp.edit().putString(ConstantSp.PASSWORD,"").commit();
+                    sp.edit().putString(ConstantSp.GENDER,sGender).commit();
+                    setData(false);
+                }
+                else{
+                    new ToastCommonMethod(ProfileActivity.this,object.getString("message"));
+                }
+            } catch (JSONException e) {
+                throw new RuntimeException(e);
+            }
+        }
     }
 }
