@@ -21,6 +21,9 @@ import org.json.JSONObject;
 import java.util.HashMap;
 
 import asiapacific.app.R;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class Registration extends AppCompatActivity {
     EditText edttxt_name, edttxt_email, edttxt_mobile, edttxt_regisPass, edttxt_confirmPass;
@@ -32,12 +35,16 @@ public class Registration extends AppCompatActivity {
     SQLiteDatabase db;
 
     String sGender;
+    ApiInterface apiInterface;
+    ProgressDialog pd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_registration);
+
+        apiInterface = ApiClient.getClient().create(ApiInterface.class);
 
         db = openOrCreateDatabase("UserApp.db",MODE_PRIVATE,null);
         String tableQuery = "CREATE TABLE IF NOT EXISTS USERS(USERID INTEGER PRIMARY KEY AUTOINCREMENT,NAME VARCHAR(100),EMAIL VARCHAR(100),CONTACT BIGINT(10),GENDER VARCHAR(10),PASSWORD VARCHAR(20))";
@@ -105,7 +112,12 @@ public class Registration extends AppCompatActivity {
                         //AsyncTask
                         //Volley
                         //Retrofit
-                        new doSignup().execute();
+                        //new doSignup().execute();
+                        pd = new ProgressDialog(Registration.this);
+                        pd.setMessage("Please Wait...");
+                        pd.setCancelable(false);
+                        pd.show();
+                        doRetrofitSignup();
                     }
                     else{
                         new ConnectionDetector(Registration.this).networkDisconnected();
@@ -128,6 +140,43 @@ public class Registration extends AppCompatActivity {
             }
         });*/
 
+
+    }
+
+    private void doRetrofitSignup() {
+        Call<GetSignupData> call = apiInterface.getSignupData(
+                edttxt_name.getText().toString(),
+                edttxt_email.getText().toString(),
+                edttxt_mobile.getText().toString(),
+                edttxt_regisPass.getText().toString(),
+                sGender
+        );
+
+        call.enqueue(new Callback<GetSignupData>() {
+            @Override
+            public void onResponse(Call<GetSignupData> call, Response<GetSignupData> response) {
+                pd.dismiss();
+                if(response.code()==200){
+                    if(response.body().status){
+                        new ToastCommonMethod(Registration.this,response.body().message);
+                        Intent intent = new Intent(Registration.this, RegisterSuccess.class);
+                        startActivity(intent);
+                    }
+                    else{
+                        new ToastCommonMethod(Registration.this,response.body().message);
+                    }
+                }
+                else{
+                    new ToastCommonMethod(Registration.this,ConstantSp.SERVER_ERROR_MESSAGE+response.code());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<GetSignupData> call, Throwable t) {
+                pd.dismiss();
+                new ToastCommonMethod(Registration.this,t.getMessage());
+            }
+        });
 
     }
 

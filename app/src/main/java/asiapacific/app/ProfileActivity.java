@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -68,11 +69,17 @@ public class ProfileActivity extends AppCompatActivity {
                 builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        String deleteQuery = "DELETE FROM USERS WHERE USERID='"+sp.getString(ConstantSp.USERID,"")+"'";
+                        /*String deleteQuery = "DELETE FROM USERS WHERE USERID='"+sp.getString(ConstantSp.USERID,"")+"'";
                         db.execSQL(deleteQuery);
                         sp.edit().clear().commit();
                         new ToastCommonMethod(ProfileActivity.this, MainActivity.class);
-                        finish();
+                        finish();*/
+                        if(new ConnectionDetector(ProfileActivity.this).networkConnected()){
+                            new doDelete().execute();
+                        }
+                        else{
+                            new ConnectionDetector(ProfileActivity.this).networkDisconnected();
+                        }
                     }
                 });
 
@@ -317,6 +324,48 @@ public class ProfileActivity extends AppCompatActivity {
                 }
                 else{
                     new ToastCommonMethod(ProfileActivity.this,object.getString("message"));
+                }
+            } catch (JSONException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
+
+    private class doDelete extends AsyncTask<String,String,String> {
+
+        ProgressDialog pd;
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            pd = new ProgressDialog(ProfileActivity.this);
+            pd.setMessage("Please Wait...");
+            pd.setCancelable(false);
+            pd.show();
+        }
+
+        @Override
+        protected String doInBackground(String... strings) {
+            HashMap<String,String> hashMap = new HashMap<>();
+            hashMap.put("userid",sp.getString(ConstantSp.USERID,""));
+            return new MakeServiceCall().MakeServiceCall(ConstantSp.BASE_URL+"deleteProfile.php",MakeServiceCall.POST,hashMap);
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
+            pd.dismiss();
+            try {
+                JSONObject jsonObject = new JSONObject(s);
+                if(jsonObject.getBoolean("status")){
+                    sp.edit().clear().commit();
+                    //Toast.makeText(ProfileActivity.this, jsonObject.getString("message"), Toast.LENGTH_SHORT).show();
+                    new ToastCommonMethod(ProfileActivity.this,jsonObject.getString("message"));
+                    new ToastCommonMethod(ProfileActivity.this, MainActivity.class);
+                    finish();
+                }
+                else{
+                    new ToastCommonMethod(ProfileActivity.this,jsonObject.getString("message"));
                 }
             } catch (JSONException e) {
                 throw new RuntimeException(e);
