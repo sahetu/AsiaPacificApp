@@ -15,6 +15,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import asiapacific.app.R;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 import com.google.android.material.snackbar.Snackbar;
 
 import org.json.JSONException;
@@ -31,10 +35,15 @@ public class MainActivity extends AppCompatActivity {
     SQLiteDatabase db;
     SharedPreferences sp;
 
+    ApiInterface apiInterface;
+    ProgressDialog pd;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        apiInterface = ApiClient.getClient().create(ApiInterface.class);
 
         sp = getSharedPreferences(ConstantSp.PREF,MODE_PRIVATE);
 
@@ -71,7 +80,12 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(intent);*/
                     //doLoginSqlite(v);
                     if(new ConnectionDetector(MainActivity.this).networkConnected()){
-                        new doLogin().execute();
+                        //new doLogin().execute();
+                        pd = new ProgressDialog(MainActivity.this);
+                        pd.setMessage("Please Wait...");
+                        pd.setCancelable(false);
+                        pd.show();
+                        doLoginRetrofit();
                     }
                     else{
                         new ConnectionDetector(MainActivity.this).networkDisconnected();
@@ -88,6 +102,42 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void doLoginRetrofit() {
+        Call<GetLoginData> call  = apiInterface.getLoginData(mainEmail.getText().toString(),mainPass.getText().toString());
+        call.enqueue(new Callback<GetLoginData>() {
+            @Override
+            public void onResponse(Call<GetLoginData> call, Response<GetLoginData> response) {
+                pd.dismiss();
+                if(response.code()==200){
+                    if(response.body().status){
+                        sp.edit().putString(ConstantSp.USERID,response.body().userDetails.userid).commit();
+                        sp.edit().putString(ConstantSp.NAME,response.body().userDetails.name).commit();
+                        sp.edit().putString(ConstantSp.EMAIL,response.body().userDetails.email).commit();
+                        sp.edit().putString(ConstantSp.CONTACT,response.body().userDetails.contact).commit();
+                        sp.edit().putString(ConstantSp.PASSWORD,"").commit();
+                        sp.edit().putString(ConstantSp.GENDER,response.body().userDetails.gender).commit();
+
+                        new ToastCommonMethod(MainActivity.this,response.body().message);
+                        Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
+                        startActivity(intent);
+                    }
+                    else{
+                        new ToastCommonMethod(MainActivity.this,response.body().message);
+                    }
+                }
+                else{
+                    new ToastCommonMethod(MainActivity.this,ConstantSp.SERVER_ERROR_MESSAGE+response.code());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<GetLoginData> call, Throwable t) {
+                pd.dismiss();
+                new ToastCommonMethod(MainActivity.this,t.getMessage());
+            }
+        });
     }
 
     private void doLoginSqlite(View v) {

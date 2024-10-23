@@ -27,6 +27,10 @@ import org.json.JSONObject;
 
 import java.util.HashMap;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class ProfileActivity extends AppCompatActivity {
 
     EditText edttxt_name, edttxt_email, edttxt_mobile, edttxt_regisPass, edttxt_confirmPass;
@@ -42,10 +46,15 @@ public class ProfileActivity extends AppCompatActivity {
 
     Button logout,editProfile,submit,deleteProfile;
 
+    ApiInterface apiInterface;
+    ProgressDialog pd;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
+
+        apiInterface = ApiClient.getClient().create(ApiInterface.class);
 
         sp = getSharedPreferences(ConstantSp.PREF,MODE_PRIVATE);
 
@@ -75,7 +84,12 @@ public class ProfileActivity extends AppCompatActivity {
                         new ToastCommonMethod(ProfileActivity.this, MainActivity.class);
                         finish();*/
                         if(new ConnectionDetector(ProfileActivity.this).networkConnected()){
-                            new doDelete().execute();
+                            //new doDelete().execute();
+                            pd= new ProgressDialog(ProfileActivity.this);
+                            pd.setMessage("Please Wait...");
+                            pd.setCancelable(false);
+                            pd.show();
+                            doDeleteRetrofit();
                         }
                         else{
                             new ConnectionDetector(ProfileActivity.this).networkDisconnected();
@@ -200,7 +214,12 @@ public class ProfileActivity extends AppCompatActivity {
                 else {
                     //doUpdateSqlite();
                     if(new ConnectionDetector(ProfileActivity.this).networkConnected()){
-                        new doUpdate().execute();
+                        //new doUpdate().execute();
+                        pd= new ProgressDialog(ProfileActivity.this);
+                        pd.setMessage("Please Wait...");
+                        pd.setCancelable(false);
+                        pd.show();
+                        doUpdateRetrofit();
                     }
                     else{
                         new ConnectionDetector(ProfileActivity.this).networkDisconnected();
@@ -214,6 +233,69 @@ public class ProfileActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 setData(true);
+            }
+        });
+    }
+
+    private void doDeleteRetrofit() {
+        Call<GetSignupData> call = apiInterface.getDeleteProfileData(sp.getString(ConstantSp.USERID,""));
+        call.enqueue(new Callback<GetSignupData>() {
+            @Override
+            public void onResponse(Call<GetSignupData> call, Response<GetSignupData> response) {
+                pd.dismiss();
+                if(response.code()==200){
+                    if(response.body().status){
+                        new ToastCommonMethod(ProfileActivity.this,response.body().message);
+                        sp.edit().clear().commit();
+                        new ToastCommonMethod(ProfileActivity.this, MainActivity.class);
+                        finish();
+                    }
+                    else{
+                        new ToastCommonMethod(ProfileActivity.this,response.body().message);
+                    }
+                }
+                else{
+                    new ToastCommonMethod(ProfileActivity.this,ConstantSp.SERVER_ERROR_MESSAGE+response.code());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<GetSignupData> call, Throwable t) {
+                pd.dismiss();
+                new ToastCommonMethod(ProfileActivity.this,t.getMessage());
+            }
+        });
+    }
+
+    private void doUpdateRetrofit() {
+        Call<GetSignupData> call = apiInterface.getUpdateProfileData(sp.getString(ConstantSp.USERID,""),edttxt_name.getText().toString(),edttxt_email.getText().toString(),edttxt_mobile.getText().toString(),edttxt_regisPass.getText().toString(),sGender);
+        call.enqueue(new Callback<GetSignupData>() {
+            @Override
+            public void onResponse(Call<GetSignupData> call, Response<GetSignupData> response) {
+                pd.dismiss();
+                if(response.code()==200){
+                    if(response.body().status){
+                        new ToastCommonMethod(ProfileActivity.this,response.body().message);
+                        sp.edit().putString(ConstantSp.NAME,edttxt_name.getText().toString()).commit();
+                        sp.edit().putString(ConstantSp.EMAIL,edttxt_email.getText().toString()).commit();
+                        sp.edit().putString(ConstantSp.CONTACT,edttxt_mobile.getText().toString()).commit();
+                        sp.edit().putString(ConstantSp.PASSWORD,"").commit();
+                        sp.edit().putString(ConstantSp.GENDER,sGender).commit();
+                        setData(false);
+                    }
+                    else{
+                        new ToastCommonMethod(ProfileActivity.this,response.body().message);
+                    }
+                }
+                else{
+                    new ToastCommonMethod(ProfileActivity.this,ConstantSp.SERVER_ERROR_MESSAGE+response.code());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<GetSignupData> call, Throwable t) {
+                pd.dismiss();
+                new ToastCommonMethod(ProfileActivity.this,t.getMessage());
             }
         });
     }
