@@ -118,6 +118,7 @@ public class MainActivity extends AppCompatActivity {
                         sp.edit().putString(ConstantSp.CONTACT,response.body().userDetails.contact).commit();
                         sp.edit().putString(ConstantSp.PASSWORD,"").commit();
                         sp.edit().putString(ConstantSp.GENDER,response.body().userDetails.gender).commit();
+                        sp.edit().putString(ConstantSp.PROFILE,response.body().userDetails.profile).commit();
 
                         new ToastCommonMethod(MainActivity.this,response.body().message);
                         Intent intent = new Intent(MainActivity.this, ProfileActivity.class);

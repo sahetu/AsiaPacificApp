@@ -31,6 +31,9 @@ public class GetLoginData {
         @SerializedName("gender")
         @Expose
         public String gender;
+        @SerializedName("profile")
+        @Expose
+        public String profile;
         @SerializedName("password")
         @Expose
         public String password;
