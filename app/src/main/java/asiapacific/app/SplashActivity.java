@@ -36,7 +36,9 @@ public class SplashActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                if(sp.getString(ConstantSp.USERID,"").equalsIgnoreCase("")){
+                new ToastCommonMethod(SplashActivity.this,NotificationActivity.class);
+                finish();
+                /*if(sp.getString(ConstantSp.USERID,"").equalsIgnoreCase("")){
                     //new ToastCommonMethod(SplashActivity.this,ActivityToFragmentActivity.class);
                     new ToastCommonMethod(SplashActivity.this,MainActivity.class);
                     finish();
@@ -46,7 +48,7 @@ public class SplashActivity extends AppCompatActivity {
                     new ToastCommonMethod(SplashActivity.this,ProfileActivity.class);
                     //new ToastCommonMethod(SplashActivity.this,BottomDemoActivity.class);
                     finish();
-                }
+                }*/
             }
         },3000);
     }

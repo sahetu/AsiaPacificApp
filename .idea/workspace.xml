@@ -50,6 +50,11 @@
           <theme>@style/Theme.Prince</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_notification.xml">
+        <config>
+          <theme>@style/Theme.Prince</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_profile.xml">
         <config>
           <theme>@style/Theme.Prince</theme>
@@ -171,12 +176,24 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="03a1a614-9389-4ecb-941a-42f8163e6299" name="Changes" comment="Signup Using Retrofit">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/asiapacific/app/GetLoginData.java" afterDir="false" />
+    <list default="true" id="03a1a614-9389-4ecb-941a-42f8163e6299" name="Changes" comment="Profile Update">
+      <change afterPath="$PROJECT_DIR$/app/google-services.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/asiapacific/app/NotificationActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/asiapacific/app/notifications/Config.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/asiapacific/app/notifications/MyFirebaseInstanceIDService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/asiapacific/app/notifications/MyFirebaseMessagingService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/asiapacific/app/notifications/NotificationUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_notification.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/AsiaPacificApp.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/asiapacific/app/ApiInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/asiapacific/app/ApiInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/asiapacific/app/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/asiapacific/app/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/asiapacific/app/ProfileActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/asiapacific/app/ProfileActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/asiapacific/app/ConstantSp.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/asiapacific/app/ConstantSp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/asiapacific/app/SplashActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/asiapacific/app/SplashActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -198,27 +215,30 @@
         <task path="$PROJECT_DIR$/app">
           <activation />
         </task>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
         <projects_view>
           <tree_state>
             <expand>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="prince" type="f1a62948:ProjectNode" />
+                <item name="AsiaPacificApp" type="f1a62948:ProjectNode" />
               </path>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="prince" type="f1a62948:ProjectNode" />
+                <item name="AsiaPacificApp" type="f1a62948:ProjectNode" />
                 <item name="app" type="2d1252cf:ModuleNode" />
               </path>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="prince" type="f1a62948:ProjectNode" />
+                <item name="AsiaPacificApp" type="f1a62948:ProjectNode" />
                 <item name="app" type="2d1252cf:ModuleNode" />
                 <item name="Tasks" type="e4a08cd1:TasksNode" />
               </path>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="prince" type="f1a62948:ProjectNode" />
+                <item name="AsiaPacificApp" type="f1a62948:ProjectNode" />
                 <item name="app" type="2d1252cf:ModuleNode" />
                 <item name="Tasks" type="e4a08cd1:TasksNode" />
                 <item name="other" type="c8890929:TasksNode$1" />
@@ -267,12 +287,14 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Android App.app.executor": "Run",
+    "Gradle.AsiaPacificApp [signingreport].executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.cidr.known.project.marker": "true",
     "RunOnceActivity.readMode.enableVisualFormatting": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
+    "com.google.services.firebase.aqiPopupShown": "true",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "D:/Android/AsiaPacificApp/app/src/main/java/asiapacific/app",
@@ -309,6 +331,7 @@
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Android\AsiaPacificApp\app\src\main\java\asiapacific\app" />
+      <recent name="D:\Android\AsiaPacificApp\app" />
       <recent name="D:\Android\AsiaPacificApp\app\src\main\res\layout" />
       <recent name="D:\Android\AsiaPacificApp\app\src\main\res\drawable" />
       <recent name="D:\Android Github Code\prince\app\src\main\res\font" />
@@ -328,8 +351,16 @@
     <key name="android.template.-101539701">
       <recent name="asiapacific.app" />
     </key>
+    <key name="android.template.557781466">
+      <recent name="asiapacific.app" />
+    </key>
   </component>
-  <component name="RunManager">
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="gradle signingreport" />
+    </option>
+  </component>
+  <component name="RunManager" selected="Android App.app">
     <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App">
       <module name="AsiaPacificApp.app.main" />
       <option name="DEPLOY" value="true" />
@@ -343,6 +374,8 @@
       <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
       <option name="ACTIVITY_EXTRA_FLAGS" value="" />
       <option name="MODE" value="default_activity" />
+      <option name="RESTORE_ENABLED" value="false" />
+      <option name="RESTORE_FILE" value="" />
       <option name="CLEAR_LOGCAT" value="false" />
       <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
       <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
@@ -396,6 +429,33 @@
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
       </method>
     </configuration>
+    <configuration name="AsiaPacificApp [signingreport]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="signingreport" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.AsiaPacificApp [signingreport]" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -582,7 +642,23 @@
       <option name="project" value="LOCAL" />
       <updated>1729579218084</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Login,UpdateProfile Using Retrofit">
+      <option name="closed" value="true" />
+      <created>1729664096052</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1729664096052</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Profile Update">
+      <option name="closed" value="true" />
+      <created>1729838180634</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1729838180635</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -604,6 +680,8 @@
     <MESSAGE value="Signup Using AsyncTask" />
     <MESSAGE value="Login And UpdateProfile Using AsyncTask" />
     <MESSAGE value="Signup Using Retrofit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Signup Using Retrofit" />
+    <MESSAGE value="Login,UpdateProfile Using Retrofit" />
+    <MESSAGE value="Profile Update" />
+    <option name="LAST_COMMIT_MESSAGE" value="Profile Update" />
   </component>
 </project>
