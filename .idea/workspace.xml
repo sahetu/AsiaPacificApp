@@ -60,6 +60,11 @@
           <theme>@style/Theme.Prince</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_razorpay_demo.xml">
+        <config>
+          <theme>@style/Theme.Prince</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_recycer_second.xml">
         <config>
           <theme>@style/Theme.Prince</theme>
@@ -176,24 +181,13 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="03a1a614-9389-4ecb-941a-42f8163e6299" name="Changes" comment="Profile Update">
-      <change afterPath="$PROJECT_DIR$/app/google-services.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/asiapacific/app/NotificationActivity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/asiapacific/app/notifications/Config.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/asiapacific/app/notifications/MyFirebaseInstanceIDService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/asiapacific/app/notifications/MyFirebaseMessagingService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/asiapacific/app/notifications/NotificationUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_notification.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/AsiaPacificApp.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="03a1a614-9389-4ecb-941a-42f8163e6299" name="Changes" comment="Push Notification">
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/asiapacific/app/RazorpayDemoActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_razorpay_demo.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/asiapacific/app/ConstantSp.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/asiapacific/app/ConstantSp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/asiapacific/app/SplashActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/asiapacific/app/SplashActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -298,7 +292,7 @@
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "D:/Android/AsiaPacificApp/app/src/main/java/asiapacific/app",
-    "settings.editor.selected.configurable": "preferences.lookFeel"
+    "settings.editor.selected.configurable": "editor.preferences.fonts.default"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -337,6 +331,9 @@
       <recent name="D:\Android Github Code\prince\app\src\main\res\font" />
     </key>
     <key name="android.template.-1970739887">
+      <recent name="asiapacific.app" />
+    </key>
+    <key name="android.template.-2130439914">
       <recent name="asiapacific.app" />
     </key>
     <key name="android.template.1556812309">
@@ -658,7 +655,15 @@
       <option name="project" value="LOCAL" />
       <updated>1729838180635</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Push Notification">
+      <option name="closed" value="true" />
+      <created>1731308295287</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1731308295288</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -682,6 +687,7 @@
     <MESSAGE value="Signup Using Retrofit" />
     <MESSAGE value="Login,UpdateProfile Using Retrofit" />
     <MESSAGE value="Profile Update" />
-    <option name="LAST_COMMIT_MESSAGE" value="Profile Update" />
+    <MESSAGE value="Push Notification" />
+    <option name="LAST_COMMIT_MESSAGE" value="Push Notification" />
   </component>
 </project>
