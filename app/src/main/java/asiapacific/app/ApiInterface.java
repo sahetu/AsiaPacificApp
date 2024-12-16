@@ -5,6 +5,7 @@ import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
@@ -56,5 +57,20 @@ public interface ApiInterface {
             @Part("password") RequestBody dob,
             @Part("gender") RequestBody gender,
             @Part MultipartBody.Part image);
+
+    @GET("country.php")
+    Call<GetCountryData> getCountryData();
+
+    @FormUrlEncoded
+    @POST("state.php")
+    Call<GetStateData> getStateData(
+            @Field("country_id") String country_id
+    );
+
+    @FormUrlEncoded
+    @POST("city.php")
+    Call<GetCityData> getCityData(
+            @Field("state_id") String state_id
+    );
 
 }

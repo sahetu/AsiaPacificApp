@@ -2,7 +2,7 @@ package asiapacific.app;
 
 public class ConstantSp {
 
-    public static final String BASE_URL = "http://192.168.102.61/AsiaCollegeApi/";
+    public static final String BASE_URL = "http://192.168.240.61/AsiaCollegeApi/";
 
     public static final String SERVER_ERROR_MESSAGE = "Server Error Code : ";
 

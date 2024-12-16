@@ -36,7 +36,7 @@ public class SplashActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                new ToastCommonMethod(SplashActivity.this,RazorpayDemoActivity.class);
+                new ToastCommonMethod(SplashActivity.this,CountryStateCityActivity.class);
                 finish();
                 /*if(sp.getString(ConstantSp.USERID,"").equalsIgnoreCase("")){
                     //new ToastCommonMethod(SplashActivity.this,ActivityToFragmentActivity.class);
